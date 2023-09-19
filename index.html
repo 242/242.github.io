@@ -39,51 +39,90 @@
 </body>
 </html>
 
-<style>
-body {
-    background-color: #008080;
-    font-family: 'MS Sans Serif', Tahoma, sans-serif;
-    margin: 0;
-}
+<style>@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
-.win95-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.window {
-    background-color: #c0c0c0;
-    border: 2px solid #000;
-    width: 300px;
-    box-shadow: 3px 3px 0 #000;
-}
-
-.window-header {
-    background-color: #000080;
-    color: #fff;
-    padding: 5px;
-    font-weight: bold;
-}
-
-.window-body {
-    padding: 10px;
-}
-
-.win95-button {
-    background-color: #c0c0c0;
-    border: 2px outset #fff;
-    padding: 5px 10px;
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-}
-
-.win95-button:hover {
-    border-style: inset;
-}
-
-
-</style>
-
+    body {
+        background: radial-gradient(circle, #0f2f4f, #0a1a2a);
+        margin: 0;
+        overflow: hidden;
+        font-family: 'Orbitron', sans-serif;
+    }
+    
+    .win95-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+    
+    .window {
+        position: absolute;
+        background-color: rgba(50, 50, 50, 0.8);
+        border: 2px solid #008080;
+        width: 300px;
+        padding: 20px;
+        box-shadow: 0 0 20px rgba(0, 128, 128, 0.5);
+        animation: pong 10s linear infinite;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .window:hover {
+        animation-play-state: paused;
+    }
+    
+    @keyframes pong {
+        0%, 100% {
+            top: 0;
+            left: 0;
+        }
+        25% {
+            top: 50vh;
+            left: 50vw;
+        }
+        50% {
+            top: 0;
+            left: 100vw;
+        }
+        75% {
+            top: 100vh;
+            left: 50vw;
+        }
+    }
+    
+    .window-header {
+        background-color: #002830;
+        color: #00ffa0;
+        padding: 5px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 18px 18px 0 0;
+    }
+    
+    .window-body {
+        padding: 10px;
+        color: #00ffa0; 
+        text-align: center;
+    }
+    
+    .win95-button {
+        background-color: #004040;
+        border: 2px outset #00ffa0;
+        padding: 5px 10px;
+        text-decoration: none;
+        color: #00ffa0;
+        font-weight: bold;
+        border-radius: 12px;
+        transition: all 0.5s;
+    }
+    
+    .win95-button:hover {
+        border-style: inset;
+        background-color: #006060;
+    }
+    
+    
+    </style>

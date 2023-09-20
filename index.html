@@ -57,41 +57,47 @@
         width: 100vw;
         overflow: hidden;
     }
-    
-    .window {
-        position: absolute;
-        background-color: rgba(50, 50, 50, 0.8);
-        border: 2px solid #008080;
-        width: 300px;
-        padding: 20px;
-        box-shadow: 0 0 20px rgba(0, 128, 128, 0.5);
-        animation: pong 10s linear infinite;
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
+
+    @keyframes organicFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
     }
+    20% {
+        transform: translate(2vw, 3vh) scale(1.02);
+    }
+    40% {
+        transform: translate(-2vw, -2vh) scale(0.98);
+    }
+    60% {
+        transform: translate(3vw, -1vh) scale(1.01);
+    }
+    80% {
+        transform: translate(-1vw, 2vh) scale(1.03);
+    }
+    100% {
+        transform: translate(1vw, -2vh) scale(1);
+    }
+}
+
+.window {
+    position: absolute;
+    background-color: rgba(50, 50, 50, 0.8);
+    border: 2px solid #008080;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 128, 128, 0.5);
+    animation: organicFloat 60s infinite linear;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    will-change: transform;
+}
+
     
     .window:hover {
         animation-play-state: paused;
     }
     
-    @keyframes pong {
-        0%, 100% {
-            top: 0;
-            left: 0;
-        }
-        25% {
-            top: 50vh;
-            left: 50vw;
-        }
-        50% {
-            top: 0;
-            left: 100vw;
-        }
-        75% {
-            top: 100vh;
-            left: 50vw;
-        }
-    }
+ 
     
     .window-header {
         background-color: #002830;
@@ -124,5 +130,10 @@
         background-color: #006060;
     }
     
-    
+    @media (max-width: 600px) {
+    .window {
+        width: 80vw;
+        padding: 10px;
+    }
+}
     </style>
